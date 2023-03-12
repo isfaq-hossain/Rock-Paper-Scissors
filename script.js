@@ -1,12 +1,14 @@
+//variables
 const strings = ['rock', 'paper', 'scissors'];
-let playerSelection = 'Rock';
-playerSelection = playerSelection.toLowerCase();
-const computerSelection = getComputerChoice();
+let computerSelection;
+let playerSelection;
+let playerWinCounter = 0;
+let computerWinCounter = 0;
 
 //Returns a random string from the list of strings
 function getComputerChoice() {
-    let randomIndex = Math.floor(Math.random() * 3);
-    let randomString = strings[randomIndex];
+    const randomIndex = Math.floor(Math.random() * 3);
+    const randomString = strings[randomIndex];
     return randomString;
 }
 
@@ -27,8 +29,30 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+//count winner and return a statement
 function winOrLose(str) {
-    return (str === 'win' ? `You Win! ${playerSelection} beats ${computerSelection} `
-        : `You Lose! ${computerSelection} beats ${playerSelection} `)
+    if (str === 'win') {
+        playerWinCounter++
+        return `You Win! ${playerSelection} beats ${computerSelection} `
+    } else {
+        computerWinCounter++
+        return `You Lose! ${computerSelection} beats ${playerSelection} `
+    }
 }
-console.log(playRound(playerSelection, computerSelection))
+
+//play the game 5 times
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playerSelection = prompt('Enter your choice');
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection))
+    }
+    if (playerWinCounter > computerWinCounter) {
+        alert('Hurry! You won the game')
+    } else {
+        alert('You lost! Better luck next time')
+    }
+}
+
+game()

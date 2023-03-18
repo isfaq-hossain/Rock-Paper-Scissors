@@ -1,0 +1,198 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 50px;
+}
+
+.game {
+  margin: 50px auto;
+  max-width: 1200px;
+  background-color: #444;
+  border: 2px solid #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 600px;
+}
+
+.players {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.player,
+.computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  border: 2px solid #555;
+  padding: 20px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.player h2,
+.computer h2 {
+  margin-top: 0;
+}
+
+.choice-label {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.choice {
+  font-size: 1.2em;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.score p {
+  font-size: 1.2em;
+}
+
+.score-count {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  font-size: 36px;
+  line-height: 100px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 0 #000;
+}
+.btn:active {
+  transform: translatey(5px);
+}
+
+.result-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.resultContainer {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 50px;
+  flex: 0 1 300px;
+}
+
+.result-section p {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: white;
+  margin: 0;
+}
+.final-result-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(30px);
+  z-index: 10;
+}
+
+.final-result-heading {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.winner {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reset-btn {
+  display: block;
+  margin: 40px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.reset-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 0 #000;
+}
+.reset-btn:active {
+  transform: translateY(5px);
+}
+
+/* backgorund Images for buttonss */
+
+.btn.psBtn1 {
+  background-image: url('https://img.icons8.com/emoji/96/000000/rock-emoji.png');
+}
+
+.btn.psBtn2 {
+  background-image: url('https://img.icons8.com/emoji/96/000000/raised-hand-emoji.png');
+}
+
+.btn.psBtn3 {
+  background-image: url('https://img.icons8.com/emoji/96/000000/victory-hand-emoji.png');
+}
+
+.psBtn1,
+.psBtn2,
+.psBtn3 {
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+  background-position: center;
+}

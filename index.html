@@ -4,12 +4,63 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>RPS</title>
   </head>
   <body>
-    <button class="psBtn1 btn">Rock</button>
-    <button class="psBtn2 btn">Paper</button>
-    <button class="psBtn3 btn">Scissors</button>
+    <h1>Rock Paper Scissors</h1>
+    <div class="game">
+      <div class="players">
+        <div class="player">
+          <h2>You</h2>
+          <div class="player-choice">
+            <p class="choice-label">Your Choice:</p>
+            <p class="choice"></p>
+          </div>
+          <div class="player-score score">
+            <p>Score:</p>
+            <span class="player-score-count score-count">0</span>
+          </div>
+        </div>
+        <div class="computer">
+          <h2>Computer</h2>
+          <div class="computer-choice">
+            <p class="choice-label">Computer's Choice:</p>
+            <p class="choice"></p>
+          </div>
+          <div class="computer-score score">
+            <p>Score:</p>
+            <span class="computer-score-count score-count">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="result-section">
+        <!-- <h2 class="result-heading">Result</h2> -->
+        <div class="resultContainer">
+          <p class="result"></p>
+        </div>
+      </div>
+      <div class="choices">
+        <button
+          class="psBtn1 btn"
+          value="Rock"
+          onclick="playBtnSound()"
+        ></button>
+        <button
+          class="psBtn2 btn"
+          value="Paper"
+          onclick="playBtnSound()"
+        ></button>
+        <button
+          class="psBtn3 btn"
+          value="Scissors"
+          onclick="playBtnSound()"
+        ></button>
+        <audio id="click-sound" src="./audio/button2.wav"></audio>
+        <audio id="victory-sound" src="./audio/victory01.wav"></audio>
+        <audio id="lose-sound" src="./audio/defeat.wav"></audio>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

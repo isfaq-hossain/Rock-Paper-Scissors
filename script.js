@@ -1,7 +1,7 @@
 //variables
 const strings = ['rock', 'paper', 'scissors'];
-let computerSelection;
-let playerSelection;
+let computerChoice;
+let playerChoice;
 let playerWinCounter = 0;
 let computerWinCounter = 0;
 
@@ -18,42 +18,65 @@ function playRound(playerSelection, computerSelection) {
     return 'Its a Tie!';
   } else if (playerSelection === 'rock') {
     return computerSelection === 'scissors'
-      ? winOrLose('win')
-      : winOrLose('lose');
+      ? roundWinOrLose('win')
+      : roundWinOrLose('lose');
   } else if (playerSelection === 'paper') {
-    return computerSelection === 'rock' ? winOrLose('win') : winOrLose('lose');
+    return computerSelection === 'rock'
+      ? roundWinOrLose('win')
+      : roundWinOrLose('lose');
   } else if (playerSelection === 'scissors') {
-    return computerSelection === 'paper' ? winOrLose('win') : winOrLose('lose');
+    return computerSelection === 'paper'
+      ? roundWinOrLose('win')
+      : roundWinOrLose('lose');
   }
 }
 
-//count winner and return a statement
-function winOrLose(str) {
+//count round winner and return a statement
+function roundWinOrLose(str) {
   if (str === 'win') {
     playerWinCounter++;
-    return `You Win! ${playerSelection} beats ${computerSelection} `;
-  } else if (str === 'lose') {
+    return `You Win! ${playerChoice} beats ${computerChoice} `;
+  } else {
     computerWinCounter++;
-    return `You Lose! ${computerSelection} beats ${playerSelection} `;
+    return `You Lose! ${computerChoice} beats ${playerChoice} `;
+  }
+}
+
+function winner() {
+  if (playerWinCounter > computerWinCounter) {
+    alert('Hurry! You won the game');
+  } else {
+    alert('You lost! Better luck next time');
+  }
+  resetGame();
+}
+
+function psBtnClick(e) {
+  playerChoice = e.target.textContent;
+  playerChoice = playerChoice.toLowerCase();
+  computerChoice = getComputerChoice();
+  console.log(
+    `Player choice: ${playerChoice}\nComputer choice: ${computerChoice}`
+  );
+  console.log(playRound(playerChoice, computerChoice));
+
+  if (computerWinCounter === 5 || playerWinCounter === 5) {
+    winner();
   }
 }
 
 //play the game 5 times
 function game() {
-  //   for (let i = 0; i < 5; i++) {
-  playerSelection = prompt('Enter your choice');
-  playerSelection = playerSelection.toLowerCase();
-  computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
-  //   }
+  const psBtn = document.querySelectorAll('.btn');
 
-  if (playerWinCounter > computerWinCounter) {
-    alert('Hurry! You won the game');
-  } else if (computerWinCounter > playerWinCounter) {
-    alert('You lost! Better luck next time');
-  } else {
-    alert("It's a Tie!");
+  for (let i = 0; i < psBtn.length; i++) {
+    psBtn[i].addEventListener('click', psBtnClick);
   }
 }
 
 game();
+
+function resetGame() {
+  playerWinCounter = 0;
+  computerWinCounter = 0;
+}
